@@ -16,6 +16,7 @@ import 'graphs/doughnut_graph.dart';
 import 'graphs/spline_graph.dart';
 import 'signin_screen.dart';
 import 'store_screen.dart';
+import 'manual_data_entry_screen.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -144,6 +145,17 @@ class NavBar extends StatelessWidget {
             ),
             onTap: () {
               Get.to(() => const StoreScreen());
+            },
+          ),
+          ListTile(
+            leading: Icon(MdiIcons.playlistPlus),
+            title: const Text(
+              'Manual Data Entry',
+              style: TextStyle(
+                  fontSize: 17, color: pColor, fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              Get.to(() => const ManualDataEntryScreen());
             },
           ),
           ListTile(

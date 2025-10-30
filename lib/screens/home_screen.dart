@@ -400,7 +400,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: SfCartesianChart(series: <ChartSeries>[
+                      child: SfCartesianChart(series: <CartesianSeries>[
                         // Renders area chart
                         AreaSeries<currentData, int>(
                             dataSource: chartData,

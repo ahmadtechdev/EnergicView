@@ -260,7 +260,7 @@ class _PreviousSixMonthDataState extends State<PreviousSixMonthData> {
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                          child: SfCartesianChart(series: <ChartSeries>[
+                          child: SfCartesianChart(series: <CartesianSeries>[
                             // Renders area chart
                             AreaSeries<currentData1, int>(
                                 dataSource: _chartData(),

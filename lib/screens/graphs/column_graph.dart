@@ -232,7 +232,7 @@ class _LastMonthState extends State<LastMonth> {
                                 primaryYAxis: NumericAxis(
                                   title: AxisTitle(text: 'KWH'),
                                 ),
-                                series: <ChartSeries>[
+                                series: <CartesianSeries>[
                                   ColumnSeries<Map<String, num>, String>(
                                     dataSource: [
                                       {'date': 1, 'amps': totalAmpsQuarterOne},

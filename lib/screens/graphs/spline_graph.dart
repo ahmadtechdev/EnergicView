@@ -369,7 +369,7 @@ class _LastTwoMonthCompareState extends State<LastTwoMonthCompare> {
                             primaryYAxis: NumericAxis(
                               title: AxisTitle(text: 'KWH'),
                             ),
-                            series: <ChartSeries>[
+                            series: <CartesianSeries>[
                               SplineSeries<SalesData, String>(
                                 dataSource: <SalesData>[
                                   SalesData('1', totalAmpsQuarterOne,
