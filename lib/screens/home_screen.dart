@@ -70,13 +70,13 @@ class _HomeScreenState extends State<HomeScreen> {
     // Format the month as a three-letter abbreviation (e.g., Apr)
     final currentDayMonth = DateFormat('MMMM').format(now);
     final currentDayYear = now.year;
-    final currentDay = now.day;
+    final currentDay = DateFormat('dd').format(now);
 
     final snapshot = await FirebaseFirestore.instance
         .collection("AcsData")
         .where("month", isEqualTo: currentDayMonth)
         .where("year", isEqualTo: currentDayYear.toString())
-        .where("date", isEqualTo: currentDay.toString())
+        .where("date", isEqualTo: currentDay)
         .get();
     totalAmpsThisDay = 0;
 
@@ -97,13 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final previousDayTime = now.subtract(Duration(days: 1));
     final previousDayMonth = DateFormat('MMMM').format(previousDayTime);
     final previousDayYear = previousDayTime.year;
-    final previousDay = previousDayTime.day;
+    final previousDay = DateFormat('dd').format(previousDayTime);
 
     final snapshot = await FirebaseFirestore.instance
         .collection("AcsData")
         .where("month", isEqualTo: previousDayMonth)
         .where("year", isEqualTo: previousDayYear.toString())
-        .where("date", isEqualTo: previousDay.toString())
+        .where("date", isEqualTo: previousDay)
         .get();
     totalAmpsPreviousDay = 0;
 

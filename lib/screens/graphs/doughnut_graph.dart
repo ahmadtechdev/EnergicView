@@ -35,7 +35,7 @@ class _YesterdayHoursDataState extends State<YesterdayHoursData> {
     final previousDayTime = now.subtract(const Duration(days: 1));
     final previousDayMonth = DateFormat('MMMM').format(previousDayTime);
     final previousDayYear = previousDayTime.year;
-    final previousDay = previousDayTime.day;
+    final previousDay = DateFormat('dd').format(previousDayTime);
 
     final snapshot = await FirebaseFirestore.instance
         .collection("AcsData")
@@ -61,7 +61,7 @@ class _YesterdayHoursDataState extends State<YesterdayHoursData> {
         ])
         .where("month", isEqualTo: previousDayMonth)
         .where("year", isEqualTo: previousDayYear.toString())
-        .where("date", isEqualTo: previousDay.toString())
+        .where("date", isEqualTo: previousDay)
         .get();
     totalAmpsOffPeakHours = 0;
 
@@ -84,14 +84,14 @@ class _YesterdayHoursDataState extends State<YesterdayHoursData> {
     final previousDayTime = now.subtract(const Duration(days: 1));
     final previousDayMonth = DateFormat('MMMM').format(previousDayTime);
     final previousDayYear = previousDayTime.year;
-    final previousDay = previousDayTime.day;
+    final previousDay = DateFormat('dd').format(previousDayTime);
 
     final snapshot = await FirebaseFirestore.instance
         .collection("AcsData")
         .where('hour', whereIn: ["18", "19", "20", "21", "22", "23"])
         .where("month", isEqualTo: previousDayMonth)
         .where("year", isEqualTo: previousDayYear.toString())
-        .where("date", isEqualTo: previousDay.toString())
+        .where("date", isEqualTo: previousDay)
         .get();
     totalAmpsPeakHours = 0;
 
